@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send } from 'lucide-react';
-import { api } from '../api/client';
+import { api, HAS_API } from '../api/client';
+import { localChatReply } from '../utils/localChat';
 
 const SUGGESTIONS = ['Tell me about projects', 'What are his skills?'];
 
@@ -24,14 +25,21 @@ export default function Chatbot() {
     setInput('');
     setTyping(true);
     try {
-      const { reply } = await api.chat(msg);
+      let reply;
+      if (HAS_API) {
+        ({ reply } = await api.chat(msg));
+      } else {
+        reply = localChatReply(msg);
+      }
       setTimeout(() => {
         setMessages((m) => [...m, { role: 'ai', text: reply }]);
         setTyping(false);
       }, 400);
     } catch {
-      setMessages((m) => [...m, { role: 'ai', text: 'Sorry, I could not reach the server. Try again later.' }]);
-      setTyping(false);
+      setTimeout(() => {
+        setMessages((m) => [...m, { role: 'ai', text: localChatReply(msg) }]);
+        setTyping(false);
+      }, 400);
     }
   };
 

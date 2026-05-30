@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Mail, MapPin } from 'lucide-react';
-import { api } from '../api/client';
+import { api, HAS_API } from '../api/client';
 
 export default function Contact({ profile }) {
   const [status, setStatus] = useState('idle');
@@ -10,6 +10,11 @@ export default function Contact({ profile }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!HAS_API) {
+      const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
+      window.location.href = `mailto:${profile?.email}?subject=${encodeURIComponent(form.subject)}&body=${body}`;
+      return;
+    }
     setStatus('sending');
     try {
       await api.sendContact(form);
