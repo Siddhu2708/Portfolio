@@ -114,8 +114,6 @@ async function seed() {
     { name: 'Power BI', icon: 'bar-chart-3', order: 8 },
     { name: 'Git', icon: 'git-branch', order: 9 },
     { name: 'Generative AI', icon: 'sparkles', order: 10 },
-    { name: 'MongoDB', icon: 'server', order: 11 },
-    { name: 'Neural Networks', icon: 'network', order: 12 },
   ]);
 
   await Experience.insertMany([

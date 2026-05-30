@@ -25,8 +25,6 @@ const FALLBACK = {
   skills: [
     { name: 'Python', icon: 'code-2' },
     { name: 'Deep Learning', icon: 'brain-circuit' },
-    { name: 'MongoDB', icon: 'server' },
-    { name: 'Neural Networks', icon: 'network' },
     { name: 'Generative AI', icon: 'sparkles' },
   ],
   experience: [],
