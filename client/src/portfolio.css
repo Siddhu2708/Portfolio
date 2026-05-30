@@ -1,0 +1,654 @@
+/* ============================================
+   Siddharth Gaykhe Portfolio — Responsive CSS
+   ============================================ */
+
+/* --- CSS Variables --- */
+:root {
+    --bg-dark: #0F172A;
+    --accent: #38BDF8;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --border-color: rgba(56, 189, 248, 0.1);
+}
+
+/* --- Global Reset & Base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Glassmorphism --- */
+.glass-nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+/* --- Navigation Links --- */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* --- Cursor Glow (desktop only) --- */
+#cursor-glow {
+    transition: opacity 0.3s ease;
+}
+
+/* --- Project Card Hover --- */
+.project-card:hover .glass-card {
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.05);
+    transform: translateY(-5px);
+}
+
+/* --- Timeline --- */
+.timeline-dot {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* --- Typewriter Cursor --- */
+.typed-cursor {
+    color: var(--accent);
+}
+
+/* --- Chatbot --- */
+#chat-window {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#chat-window.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Particles --- */
+#particles-js canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* --- Overflow utility --- */
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+/* ============================================
+   MOBILE MENU — Full-screen overlay
+   ============================================ */
+#mobile-menu {
+    transition: opacity 0.3s ease;
+}
+
+#mobile-menu.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.mobile-nav-link {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu.active .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered entrance */
+#mobile-menu.active .mobile-nav-link:nth-child(1) { transition-delay: 0.05s; }
+#mobile-menu.active .mobile-nav-link:nth-child(2) { transition-delay: 0.10s; }
+#mobile-menu.active .mobile-nav-link:nth-child(3) { transition-delay: 0.15s; }
+#mobile-menu.active .mobile-nav-link:nth-child(4) { transition-delay: 0.20s; }
+#mobile-menu.active .mobile-nav-link:nth-child(5) { transition-delay: 0.25s; }
+#mobile-menu.active .mobile-nav-link:nth-child(6) { transition-delay: 0.30s; }
+
+/* Reset delays when closing */
+#mobile-menu .mobile-nav-link {
+    transition-delay: 0s;
+}
+
+/* --- Skill card icon hover --- */
+.skill-card:hover i {
+    transform: scale(1.15) rotate(5deg);
+    transition: transform 0.3s ease;
+}
+
+/* --- Animations --- */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* ============================================
+   RESPONSIVE — Mobile Small (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+    /* Sections */
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Hero */
+    #home {
+        min-height: auto !important;
+        padding-top: 5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    #home h1 {
+        font-size: 2rem !important;
+        line-height: 1.15 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    #home .text-xl {
+        font-size: 1rem !important;
+        height: auto !important;
+        margin-bottom: 1rem !important;
+    }
+
+    #home p {
+        font-size: 0.875rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Hero buttons */
+    #home .flex-wrap a {
+        padding: 0.65rem 1.25rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* Scroll indicator */
+    #home .absolute.bottom-10 {
+        display: none;
+    }
+
+    /* About section */
+    .about-image-container {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    #about h2 {
+        font-size: 1.5rem !important;
+    }
+
+    #about p {
+        font-size: 0.875rem !important;
+    }
+
+    #about .grid-cols-2 {
+        gap: 0.75rem !important;
+    }
+
+    #about .grid-cols-2 > div {
+        padding: 0.75rem !important;
+    }
+
+    #about .grid-cols-2 h4 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Section headings */
+    h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Skills grid */
+    #skills .grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem !important;
+    }
+
+    #skills .aspect-square {
+        padding: 0.75rem !important;
+    }
+
+    #skills .w-12 {
+        width: 2rem !important;
+        height: 2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    #skills span {
+        font-size: 0.7rem !important;
+    }
+
+    /* Project cards */
+    #projects .grid {
+        gap: 1.25rem !important;
+    }
+
+    .project-card .p-8 {
+        padding: 1.25rem !important;
+    }
+
+    .project-card h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .project-card p {
+        font-size: 0.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Research */
+    #research .glass-card {
+        padding: 1.25rem !important;
+    }
+
+    #research h3 {
+        font-size: 1.1rem !important;
+    }
+
+    #research li {
+        font-size: 0.8rem !important;
+    }
+
+    #research .flex-wrap {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+
+    #research .flex-wrap a {
+        margin-left: 0 !important;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Timeline */
+    .timeline-card .p-6,
+    section:not([id]) .p-6 {
+        padding: 1rem !important;
+    }
+
+    /* Certifications grid */
+    #certifications .grid {
+        gap: 1rem !important;
+    }
+
+    /* Contact */
+    #contact h2 {
+        font-size: 1.5rem !important;
+    }
+
+    #contact .glass-card {
+        padding: 1.25rem !important;
+    }
+
+    #contact input,
+    #contact textarea {
+        padding: 0.65rem 0.75rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    #contact button[type="submit"] {
+        padding: 0.85rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem !important;
+    }
+
+    footer .text-2xl {
+        font-size: 1.25rem !important;
+    }
+
+    /* Chatbot bubble */
+    #ai-chat-bubble {
+        bottom: 1rem !important;
+        right: 1rem !important;
+    }
+
+    #ai-chat-bubble button:first-child {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+
+    #ai-chat-bubble button:first-child i {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+    }
+
+    /* Chat window on mobile — full width */
+    #chat-window {
+        width: calc(100vw - 2rem) !important;
+        right: -0.5rem !important;
+        height: 420px !important;
+    }
+
+    /* Mobile menu spacing */
+    #mobile-menu nav {
+        gap: 2rem !important;
+    }
+
+    #mobile-menu .mobile-nav-link {
+        font-size: 1.5rem !important;
+    }
+
+    #mobile-menu a.border-2 {
+        padding: 0.75rem 2rem !important;
+        font-size: 1.5rem !important;
+    }
+
+    #mobile-menu button {
+        top: 1.25rem !important;
+        right: 1.25rem !important;
+    }
+
+    #mobile-menu button i {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+
+    /* GitHub section */
+    .flex.gap-1 > div {
+        gap: 1px !important;
+    }
+
+    .w-3 {
+        width: 0.5rem !important;
+        height: 0.5rem !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+    /* Sections */
+    section {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    /* Hero */
+    #home {
+        min-height: auto !important;
+        padding-top: 5.5rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    #home h1 {
+        font-size: 2.5rem !important;
+    }
+
+    /* About grid — single column */
+    #about .grid {
+        gap: 2rem !important;
+    }
+
+    .about-image-container {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* Skills grid */
+    #skills .grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Projects — single column */
+    #projects .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Research */
+    #research .flex-wrap a {
+        margin-left: 0 !important;
+    }
+
+    /* Certifications — single column */
+    #certifications .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Contact — single column */
+    #contact .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    /* GitHub section */
+    .flex.flex-col.md\\:flex-row {
+        flex-direction: column !important;
+    }
+
+    /* Touch-friendly inputs */
+    input, textarea, button, select {
+        min-height: 44px;
+        font-size: 16px !important; /* Prevent iOS zoom */
+    }
+
+    /* Disable cursor glow on touch devices */
+    #cursor-glow {
+        display: none !important;
+    }
+
+    /* Mobile menu sizing */
+    #mobile-menu nav {
+        gap: 2.5rem;
+    }
+
+    #mobile-menu .mobile-nav-link {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — Laptop (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+    /* Nav spacing */
+    nav .space-x-8 {
+        gap: 1.25rem !important;
+    }
+
+    /* Section padding */
+    section {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    /* About grid gap */
+    #about .grid {
+        gap: 2.5rem !important;
+    }
+
+    /* Skills grid */
+    #skills .grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    /* Project cards */
+    .project-card .p-8 {
+        padding: 1.5rem !important;
+    }
+
+    /* Contact gap */
+    #contact .grid {
+        gap: 2.5rem !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — Large screens (min-width: 1440px)
+   ============================================ */
+@media (min-width: 1440px) {
+    /* Wider containers */
+    .max-w-6xl {
+        max-width: 80rem !important;
+    }
+
+    .max-w-4xl {
+        max-width: 60rem !important;
+    }
+
+    /* Larger hero text */
+    #home h1 {
+        font-size: 5rem !important;
+    }
+
+    #home .text-xl {
+        font-size: 2rem !important;
+    }
+
+    #home p {
+        font-size: 1.25rem !important;
+    }
+
+    /* Section headings */
+    h2 {
+        font-size: 3.5rem !important;
+    }
+
+    /* Skills grid */
+    #skills .grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Project cards */
+    .project-card h3 {
+        font-size: 1.75rem !important;
+    }
+
+    /* About text */
+    #about p {
+        font-size: 1.2rem !important;
+    }
+
+    /* Contact form */
+    #contact .glass-card {
+        padding: 3rem !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — Extra large (min-width: 1920px)
+   ============================================ */
+@media (min-width: 1920px) {
+    .max-w-6xl {
+        max-width: 90rem !important;
+    }
+
+    #home h1 {
+        font-size: 6rem !important;
+    }
+}
+
+/* ============================================
+   Landscape phone fix
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    #home {
+        min-height: auto !important;
+        padding-top: 4rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    #mobile-menu nav {
+        gap: 1rem !important;
+    }
+
+    #mobile-menu .mobile-nav-link {
+        font-size: 1.25rem !important;
+    }
+
+    #mobile-menu a.border-2 {
+        padding: 0.5rem 1.5rem !important;
+        font-size: 1.25rem !important;
+    }
+}
+
+/* ============================================
+   Print styles
+   ============================================ */
+@media print {
+    nav, header, #particles-js, #cursor-glow, #ai-chat-bubble, #mobile-menu {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}

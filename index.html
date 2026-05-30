@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth Gaykhe | AI Engineer Portfolio</title>
+    <meta name="description"
+        content="AI/ML Engineer Portfolio of Siddharth Gaykhe - Showcasing Deep Learning, Computer Vision, and Research projects.">
+    <meta name="theme-color" content="#0F172A">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            DEFAULT: '#0F172A',
+                            card: '#1E293B',
+                            accent: '#38BDF8',
+                        }
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-slate-200">
+    <!-- Particles Background -->
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+    <!-- Animated Cursor Glow -->
+    <div id="cursor-glow"
+        class="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 opacity-0 bg-[radial-gradient(circle_400px_at_var(--x)_var(--y),rgba(56,189,248,0.15),transparent_80%)]">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent glass-nav">
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-sky-400 w-0 transition-all duration-100"></div>
+        <div class="max-w-7xl mx-auto px-6 py-3 md:py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">SG.</a>
+
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="nav-link hover:text-sky-400 transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-sky-400 transition-colors">About</a>
+                <a href="#skills" class="nav-link hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#projects" class="nav-link hover:text-sky-400 transition-colors">Projects</a>
+                <a href="#research" class="nav-link hover:text-sky-400 transition-colors">Research</a>
+                <a href="#contact"
+                    class="nav-link hover:text-sky-400 transition-colors text-sky-400 border border-sky-400/30 px-4 py-1.5 rounded-full hover:bg-sky-400/10">Hire
+                    Me</a>
+            </div>
+
+            <button class="md:hidden text-slate-300 p-2" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-lucide="menu" id="menu-icon"></i>
+                <i data-lucide="x" id="close-icon" class="hidden"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu"
+            class="md:hidden fixed inset-0 bg-[#0F172A] z-[100] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+            
+            <!-- Close Button -->
+            <button class="absolute top-5 right-5 text-white p-2 hover:text-sky-400 transition-colors" id="mobile-menu-close" aria-label="Close Menu">
+                <i data-lucide="x" class="w-7 h-7"></i>
+            </button>
+
+            <nav class="flex flex-col items-center gap-7">
+                <a href="#home" class="mobile-nav-link text-xl font-bold text-slate-300 hover:text-sky-400 transition-all">Home</a>
+                <a href="#about" class="mobile-nav-link text-xl font-bold text-slate-300 hover:text-sky-400 transition-all">About</a>
+                <a href="#skills" class="mobile-nav-link text-xl font-bold text-slate-300 hover:text-sky-400 transition-all">Skills</a>
+                <a href="#projects" class="mobile-nav-link text-xl font-bold text-slate-300 hover:text-sky-400 transition-all">Projects</a>
+                <a href="#research" class="mobile-nav-link text-xl font-bold text-slate-300 hover:text-sky-400 transition-all">Research</a>
+                <a href="#contact"
+                    class="mobile-nav-link text-xl font-bold text-sky-400 border-2 border-sky-400/30 px-8 py-3 rounded-2xl hover:bg-sky-400/10 transition-all">Hire Me</a>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 pb-10 relative px-4 sm:px-6">
+        <div class="max-w-4xl w-full text-center" data-aos="zoom-out" data-aos-duration="500">
+            <div
+                class="inline-block px-3 py-1 sm:px-4 sm:py-1.5 mb-4 sm:mb-6 rounded-full border border-sky-400/20 bg-sky-400/10 text-sky-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
+                Available for ML Internships & Research
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-6 text-white leading-tight">
+                Hi, I'm <span
+                    class="bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">Siddharth</span>
+            </h1>
+            <div class="text-base sm:text-xl md:text-3xl text-slate-400 mb-4 sm:mb-8 h-8 sm:h-12">
+                I build <span id="typewriter" class="text-sky-400 font-medium"></span>
+            </div>
+            <p class="text-slate-400 text-sm sm:text-base md:text-lg mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Student of <strong class="text-white">Artificial Intelligence and Data Science</strong> at Dr. D. Y.
+                Patil Institute of Technology.
+                Passionate about Deep Learning, Computer Vision, and turning complex data into intelligent solutions.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+                <a href="#projects"
+                    class="px-5 py-2.5 sm:px-8 sm:py-3.5 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-sm sm:text-base font-semibold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] flex items-center gap-2">
+                    View My Work <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </a>
+                <a href="Siddharth_Resume_and_CV (1).pdf" download="Siddharth_Gaykhe_Resume.pdf"
+                    class="px-5 py-2.5 sm:px-8 sm:py-3.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-sm sm:text-base font-semibold transition-all border border-slate-700 flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4 sm:w-5 sm:h-5 text-sky-400"></i> Download CV
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden sm:block">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="relative about-image-container" data-aos="fade-right">
+                    <div class="aspect-square rounded-3xl bg-gradient-to-br from-sky-400 to-blue-600 p-1">
+                        <div class="w-full h-full rounded-[1.4rem] bg-dark-card overflow-hidden relative group">
+                            <img src="assets/imgs/man.jpeg" alt="Siddharth Gaykhe"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-sky-400/10 group-hover:bg-transparent transition-colors">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-400/20 blur-3xl -z-10"></div>
+                </div>
+
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About My Journey</h2>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        I’m currently a student at <strong class="text-white">Dr. D. Y. Patil Institute of
+                            Technology</strong>, pursuing a degree in <strong class="text-white">Artificial Intelligence
+                            and Data Science</strong>, after completing my diploma in AI & ML from K. K. Wagh
+                        Polytechnic. My journey in AI is driven by curiosity, creativity, and the passion to build
+                        technology that can solve real-world problems.
+                    </p>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        From developing deep learning models for tomato leaf disease detection to working on prediction
+                        systems and data analysis projects, I enjoy exploring how AI and Machine Learning can create
+                        practical and impactful solutions. I continuously work on improving my skills, learning modern
+                        technologies, and building innovative projects that challenge me to grow as an AI developer and
+                        researcher.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+                            <h4 class="text-sky-400 text-2xl font-bold mb-1">2+</h4>
+                            <p class="text-slate-500 text-sm">Years Learning</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+                            <h4 class="text-sky-400 text-2xl font-bold mb-1">10+</h4>
+                            <p class="text-slate-500 text-sm">Projects Built</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <a href="https://linkedin.com/in/siddharthgaykhe" target="_blank"
+                                class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors border border-slate-700 text-slate-300">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="mailto:siddharthgaykhe08@gmail.com"
+                                class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors border border-slate-700 text-slate-300">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://github.com/siddhu2708" target="_blank"
+                                class="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors border border-slate-700 text-slate-300">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                        <div class="h-8 w-px bg-slate-700 hidden sm:block"></div>
+                        <div
+                            class="flex items-center gap-2 px-4 py-2 rounded-full bg-sky-500/10 border border-sky-400/20">
+                            <span class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></span>
+                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">BrainAI Member</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto text-center mb-8 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Technical Arsenal</h2>
+            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">Mastering the tools that shape the future of AI and data
+                intelligence.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
+            <!-- Skill Cards -->
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="0">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="code-2" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Python</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="brain-circuit" class="w-full h-full"></i>
+                    </div>
+                    <span class="font-semibold">Deep Learning</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="eye" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Computer Vision</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="300">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="cloud" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Cloud (AWS)</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="400">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="database" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Data Science</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="500">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="terminal" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Java</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="600">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="container" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Docker</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="700">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="bar-chart-3" class="w-full h-full"></i>
+                    </div>
+                    <span class="font-semibold">Power BI</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="800">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="git-branch" class="w-full h-full"></i>
+                    </div>
+                    <span class="font-semibold">Git</span>
+                </div>
+            </div>
+            <div class="skill-card group" data-aos="fade-up" data-aos-delay="900">
+                <div
+                    class="aspect-square glass-card rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all group-hover:translate-y-[-8px] group-hover:border-sky-400/50">
+                    <div class="w-12 h-12 mb-4 text-sky-400"><i data-lucide="sparkles" class="w-full h-full"></i></div>
+                    <span class="font-semibold">Generative AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto text-center mb-8 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Innovative Work & Projects</h2>
+            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">Pioneering AI-driven solutions through advanced research, deep
+                learning, and
+                data analytics.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+            <!-- Project 1: Tomato -->
+            <div class="project-card group" data-aos="fade-up">
+                <div
+                    class="glass-card rounded-3xl overflow-hidden flex flex-col h-full border border-slate-700/50 hover:border-sky-400/30 transition-all duration-500">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="assets/imgs/tomato.png" alt="AgriIntellect"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-3 py-1 bg-sky-500/20 backdrop-blur-md text-sky-400 text-xs font-bold rounded-full border border-sky-400/30">Computer
+                                Vision</span>
+                            <span
+                                class="px-3 py-1 bg-indigo-500/20 backdrop-blur-md text-indigo-400 text-xs font-bold rounded-full border border-indigo-400/30">Deep
+                                Learning</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow text-center">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">AgriIntellect:
+                            Tomato Disease AI</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-3">
+                            A high-precision AI system for detecting tomato leaf diseases using CNN. Provides real-time
+                            diagnostics to help farmers protect crops and increase yield efficiency.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Python</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">TensorFlow</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Streamlit</span>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://github.com/Siddhu2708/Tomato-System-.git" target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Code
+                            </a>
+                            <a href="https://tomatoleaf.streamlit.app/" target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="play" class="w-4 h-4"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Diabetes -->
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="glass-card rounded-3xl overflow-hidden flex flex-col h-full border border-slate-700/50 hover:border-sky-400/30 transition-all duration-500">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="assets/imgs/diabetes.png" alt="HealthPredict"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-3 py-1 bg-emerald-500/20 backdrop-blur-md text-emerald-400 text-xs font-bold rounded-full border border-emerald-400/30">ML</span>
+                            <span
+                                class="px-3 py-1 bg-amber-500/20 backdrop-blur-md text-amber-400 text-xs font-bold rounded-full border border-amber-400/30">Healthcare</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow text-center">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">HealthPredict:
+                            Women's Diabetes Analysis</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-3">
+                            Predictive diagnostic model for early-stage diabetes detection in women. Analyzes complex
+                            health indicators to provide risk assessments with high accuracy.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Scikit-Learn</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Pandas</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">EDA</span>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://github.com/Siddhu2708/Women-Diabetes-Prediction.git" target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Code
+                            </a>
+                            <a href="https://github.com/Siddhu2708/Women-Diabetes-Prediction.git" target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="bar-chart" class="w-4 h-4"></i> Analysis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Car Detection -->
+            <div class="project-card group" data-aos="fade-up">
+                <div
+                    class="glass-card rounded-3xl overflow-hidden flex flex-col h-full border border-slate-700/50 hover:border-sky-400/30 transition-all duration-500">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="assets/imgs/car.png" alt="AutoVision"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-3 py-1 bg-blue-500/20 backdrop-blur-md text-blue-400 text-xs font-bold rounded-full border border-blue-400/30">CV</span>
+                            <span
+                                class="px-3 py-1 bg-purple-500/20 backdrop-blur-md text-purple-400 text-xs font-bold rounded-full border border-purple-400/30">CNN</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow text-center">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">AutoVision:
+                            Vehicle Detection System</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-3">
+                            A robust car detection model built using CNN. Capable of identifying and classifying
+                            vehicles in diverse lighting and environmental conditions.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">OpenCV</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Keras</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Deep
+                                Learning</span>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://github.com/Siddhu2708/Car-Detection-using-CNN-Model.git" target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: iPhone Analysis -->
+            <div class="project-card group" data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="glass-card rounded-3xl overflow-hidden flex flex-col h-full border border-slate-700/50 hover:border-sky-400/30 transition-all duration-500">
+                    <div class="aspect-video bg-slate-800 relative overflow-hidden">
+                        <img src="assets/imgs/iphone.png" alt="iInsight"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60"></div>
+                        <div class="absolute top-4 right-4 flex gap-2">
+                            <span
+                                class="px-3 py-1 bg-yellow-500/20 backdrop-blur-md text-yellow-400 text-xs font-bold rounded-full border border-yellow-400/30">BI</span>
+                            <span
+                                class="px-3 py-1 bg-orange-500/20 backdrop-blur-md text-orange-400 text-xs font-bold rounded-full border border-orange-400/30">Analytics</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow text-center">
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition-colors">iInsight: iPhone
+                            Market Intelligence</h3>
+                        <p class="text-slate-400 mb-6 line-clamp-3">
+                            Comprehensive data analysis of iPhone sales and consumer trends using Power BI. Transforming
+                            raw data into interactive dashboards and business insights.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3 mb-8">
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Power
+                                BI</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">DAX</span>
+                            <span
+                                class="text-[10px] uppercase tracking-widest font-bold text-slate-500 border border-slate-700 px-2 py-1 rounded">Visualization</span>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a href="https://github.com/Siddhu2708/Iphone-Data-Analysis-using-PowerBI.git"
+                                target="_blank"
+                                class="flex items-center gap-2 text-sm font-bold text-white hover:text-sky-400 transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & IEEE Section -->
+    <section id="research" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 sm:mb-16 text-center">Research & Publications</h2>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 border border-sky-400/10 relative overflow-hidden group"
+                data-aos="fade-up">
+                <!-- Decorative background -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-sky-400/5 blur-3xl rounded-full"></div>
+
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    <div
+                        class="w-16 h-16 shrink-0 rounded-2xl bg-sky-400/10 flex items-center justify-center text-sky-400">
+                        <i data-lucide="scroll-text" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <div
+                            class="inline-block px-3 py-1 bg-sky-500/10 text-sky-400 text-xs font-bold rounded mb-4 tracking-widest uppercase">
+                            IEEE ESCI Conference</div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">DeepAgroNet: CNN-Based Tomato Disease Detection
+                        </h3>
+                        <div class="text-slate-400 text-lg mb-6 leading-relaxed">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Built advanced CNN model for real-time disease detection from leaf images.</li>
+                                <li>Classified various plant diseases with high accuracy and robustness.</li>
+                                <li>Implemented automated image processing pipelines for seamless detection.</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="flex items-center gap-2 text-sm text-slate-500">
+                                <i data-lucide="calendar" class="w-4 h-4"></i> March 2026
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-slate-500">
+                                <i data-lucide="users" class="w-4 h-4"></i> Lead Author
+                            </div>
+                            <a href="https://ieeexplore.ieee.org/document/11493293" target="_blank"
+                                class="px-6 py-2 bg-sky-400/10 hover:bg-sky-400/20 text-sky-400 border border-sky-400/20 rounded-xl font-bold transition-all flex items-center gap-2 ml-auto">
+                                <i data-lucide="external-link" class="w-4 h-4"></i> View Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / Timeline -->
+    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 sm:mb-16 text-center">Internships & Education</h2>
+
+            <div
+                class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-700 before:to-transparent">
+
+                <!-- Timeline Item 1: Syntecxhub -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+                    data-aos="fade-right">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-dark text-sky-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-card border border-slate-700/50 hover:border-sky-400/30 transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Data Science Intern (Virtual)</div>
+                            <time class="font-medium text-sky-400 text-xs">Jan 2026 - Feb 2026</time>
+                        </div>
+                        <div class="text-slate-500 text-sm mb-4">Syntecxhub</div>
+                        <ul class="text-slate-400 text-xs leading-relaxed list-disc list-inside space-y-1">
+                            <li>Worked on data analysis and visualization tasks using real-world datasets.</li>
+                            <li>Extracted actionable insights through exploratory data analysis (EDA).</li>
+                            <li>Improved understanding of practical Data Science workflows and tools.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: Codec Technologies -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+                    data-aos="fade-left">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-dark text-sky-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-card border border-slate-700/50 hover:border-sky-400/30 transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Artificial Intelligence Intern</div>
+                            <time class="font-medium text-sky-400 text-xs">Oct 2025 - Jan 2026</time>
+                        </div>
+                        <div class="text-slate-500 text-sm mb-4">Codec Technologies Pvt. Ltd.</div>
+                        <ul class="text-slate-400 text-xs leading-relaxed list-disc list-inside space-y-1">
+                            <li>Built foundational AI models using Python and modern libraries.</li>
+                            <li>Assisted in dashboard creation and complex data analysis tasks.</li>
+                            <li>Contributed to real-world AI project development and applications.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3: B.E. Degree -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+                    data-aos="fade-right">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-dark text-sky-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-card border border-slate-700/50 hover:border-sky-400/30 transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">B.E. in AI & Data Science</div>
+                            <time class="font-medium text-sky-400 text-xs">2025 - 2028</time>
+                        </div>
+                        <div class="text-slate-500 text-sm mb-4">Dr. D. Y. Patil Institute of Technology, Pune</div>
+                        <p class="text-slate-400 text-xs leading-relaxed">Specializing in advanced AI architectures, Big
+                            Data analytics, and research-driven ML development.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4: V Analytics -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+                    data-aos="fade-left">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-dark text-sky-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-card border border-slate-700/50 hover:border-sky-400/30 transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Machine Learning Intern</div>
+                            <time class="font-medium text-sky-400 text-xs">June 2024 - Aug 2024</time>
+                        </div>
+                        <div class="text-slate-500 text-sm mb-4">V Analytics Pvt. Ltd.</div>
+                        <ul class="text-slate-400 text-xs leading-relaxed list-disc list-inside space-y-1">
+                            <li>Developed ML models and analyzed real-world datasets for business optimization.</li>
+                            <li>Applied Natural Language Processing (NLP) for customer feedback analysis.</li>
+                            <li>Gained hands-on experience in end-to-end ML workflows and data pipelines.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5: Diploma -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
+                    data-aos="fade-right">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-slate-700 bg-dark text-sky-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 rounded-2xl glass-card border border-slate-700/50 hover:border-sky-400/30 transition-all">
+                        <div class="flex items-center justify-between space-x-2 mb-1">
+                            <div class="font-bold text-white">Diploma in AI & ML</div>
+                            <time class="font-medium text-sky-400 text-xs">2021 - 2024</time>
+                        </div>
+                        <div class="text-slate-500 text-sm mb-4">K.K. Wagh Polytechnic, Nashik</div>
+                        <p class="text-slate-400 text-xs leading-relaxed">Focusing on Deep Learning, Statistical
+                            Analysis, and Computer Architecture. Consistently in top 5% of class.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 sm:mb-16 text-center">Certifications & Workshops</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div class="glass-card rounded-3xl overflow-hidden group hover:border-sky-400/30 transition-all"
+                    data-aos="fade-up">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="assets/imgs/machine learning certificate.png" alt="Machine Learning Certificate"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-sky-400 text-xs font-bold uppercase tracking-wider mb-1">AI & ML</p>
+                            <h4 class="font-bold text-white">Machine Learning Certificate</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-3xl overflow-hidden group hover:border-sky-400/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="assets/imgs/work shop agentix ai.jpg" alt="Agentic AI Workshop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-sky-400 text-xs font-bold uppercase tracking-wider mb-1">GenAI</p>
+                            <h4 class="font-bold text-white">Agentic AI Workshop</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-3xl overflow-hidden group hover:border-sky-400/30 transition-all"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="aspect-video relative overflow-hidden">
+                        <img src="assets/imgs/folio-2.jpg" alt="AWS Academy"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <p class="text-sky-400 text-xs font-bold uppercase tracking-wider mb-1">Cloud</p>
+                            <h4 class="font-bold text-white">AWS Academy</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats Section (Mockup) -->
+    <section class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-slate-900/50 overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <div class="flex-grow" data-aos="fade-right">
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">Open Source Contribution</h2>
+                    <p class="text-slate-400 mb-8 text-lg">Active contributor to the AI community. My GitHub reflects my
+                        passion for clean code and constant learning.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 text-slate-300">
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-500"></i> <span
+                                class="font-bold">50+</span> Stars
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-300">
+                            <i data-lucide="git-pull-request" class="w-5 h-5 text-emerald-500"></i> <span
+                                class="font-bold">100+</span> Commits
+                        </div>
+                    </div>
+                </div>
+                <!-- Mock GitHub Chart -->
+                <div class="w-full md:w-auto glass-card p-6 rounded-2xl border border-slate-700/50"
+                    data-aos="fade-left">
+                    <div class="flex gap-1">
+                        <!-- Simplified representation of a contribution graph -->
+                        <div class="flex flex-col gap-1" v-for="i in 20">
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-900/50 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-500 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-700 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-400 rounded-sm"></div>
+                        </div>
+                        <!-- Repeat simple visual pattern -->
+                        <div class="hidden sm:flex flex-col gap-1">
+                            <div class="w-3 h-3 bg-sky-600 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-500 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-400 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-700 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                        </div>
+                        <div class="hidden sm:flex flex-col gap-1">
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-600 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-500 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-sky-400 rounded-sm"></div>
+                            <div class="w-3 h-3 bg-slate-800 rounded-sm"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="mt-4 flex justify-between items-center text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                        <span>Less</span>
+                        <div class="flex gap-1">
+                            <div class="w-2 h-2 bg-slate-800 rounded-sm"></div>
+                            <div class="w-2 h-2 bg-sky-900 rounded-sm"></div>
+                            <div class="w-2 h-2 bg-sky-700 rounded-sm"></div>
+                            <div class="w-2 h-2 bg-sky-500 rounded-sm"></div>
+                            <div class="w-2 h-2 bg-sky-400 rounded-sm"></div>
+                        </div>
+                        <span>More</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-sky-500/5 blur-[120px] -z-10">
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6">Let's build something <span
+                            class="text-sky-400">extraordinary</span> together.</h2>
+                    <p class="text-slate-400 mb-10 text-lg">Whether you have a question or just want to say hi, my inbox
+                        is always open.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-sky-400 group-hover:bg-sky-400 group-hover:text-dark transition-all">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-xs font-bold uppercase">Email Me</p>
+                                <a href="mailto:siddharthgaykhe08@gmail.com"
+                                    class="text-white hover:text-sky-400 transition-colors">siddharthgaykhe08@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-sky-400 group-hover:bg-sky-400 group-hover:text-dark transition-all">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div>
+                                <p class="text-slate-500 text-xs font-bold uppercase">Location</p>
+                                <p class="text-white">Pune, Maharashtra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl border border-slate-700/50" data-aos="fade-left">
+                    <form id="contact-form" class="space-y-6" action="https://formspree.io/f/xgodgrdw" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase px-1">Your Name</label>
+                                <input type="text" name="name" placeholder="Your name" required
+                                    class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-400 transition-all text-white">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase px-1">Email Address</label>
+                                <input type="email" name="email" placeholder="Your email" required
+                                    class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-400 transition-all text-white">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Subject</label>
+                            <input type="text" name="subject" placeholder="How can I help?" required
+                                class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-400 transition-all text-white">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-slate-500 uppercase px-1">Message</label>
+                            <textarea rows="4" name="message" placeholder="Your message" required
+                                class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-sky-400 transition-all text-white resize-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 bg-sky-500 hover:bg-sky-600 text-white rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-sky-500/20">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 sm:py-12 border-t border-slate-800 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <a href="#"
+                    class="text-2xl font-bold bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">SG.</a>
+                <p class="text-slate-500 mt-2 text-sm max-w-xs">Building the future of intelligence, one line of code at
+                    a time.</p>
+            </div>
+
+            <div class="flex gap-6">
+                <a href="https://linkedin.com/in/siddharthgaykhe"
+                    class="text-slate-500 hover:text-white transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="mailto:siddharthgaykhe08@gmail.com"
+                    class="text-slate-500 hover:text-white transition-colors"><i data-lucide="mail"></i></a>
+                <a href="https://github.com/siddhu2708" class="text-slate-500 hover:text-white transition-colors"><i
+                        data-lucide="github"></i></a>
+            </div>
+
+            <div class="text-slate-500 text-sm font-medium">
+                &copy; <span id="footer-year"></span> Siddharth Gaykhe. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Bubble -->
+    <div id="ai-chat-bubble" class="fixed bottom-6 right-6 z-50">
+        <button id="chat-toggle"
+            class="w-16 h-16 rounded-full bg-sky-500 text-white shadow-lg shadow-sky-500/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden relative">
+            <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <i data-lucide="message-square" id="chat-icon-open" class="w-7 h-7"></i>
+            <i data-lucide="x" id="chat-icon-close" class="w-7 h-7 hidden"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window"
+            class="absolute bottom-20 right-0 w-[calc(100vw-2rem)] sm:w-[350px] md:w-[400px] h-[500px] glass-card rounded-3xl border border-sky-400/30 flex flex-col shadow-2xl transition-all scale-0 origin-bottom-right opacity-0">
+            <!-- Header -->
+            <div class="p-6 border-b border-slate-700/50 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-sky-400/30">
+                    <img src="assets/imgs/ai-avatar.png" alt="AI Avatar" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h4 class="font-bold text-white leading-none">Ask Siddharth AI</h4>
+                    <div class="flex items-center gap-1.5 mt-1.5">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Always Online</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Container -->
+            <div id="chat-messages" class="flex-grow overflow-y-auto p-6 space-y-4">
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full overflow-hidden shrink-0 border border-sky-400/20">
+                        <img src="assets/imgs/ai-avatar.png" alt="AI" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-slate-800/80 rounded-2xl p-4 text-sm text-slate-300 max-w-[80%] leading-relaxed">
+                        Hi! I'm Siddharth's AI assistant. You can ask me about his projects, skills, or research. How
+                        can I help?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested Questions -->
+            <div class="px-6 py-2 flex flex-wrap gap-2">
+                <button
+                    class="chat-suggest text-[10px] font-bold text-sky-400 bg-sky-400/10 border border-sky-400/20 px-3 py-1.5 rounded-full hover:bg-sky-400/20 transition-colors">Tell
+                    me about projects</button>
+                <button
+                    class="chat-suggest text-[10px] font-bold text-sky-400 bg-sky-400/10 border border-sky-400/20 px-3 py-1.5 rounded-full hover:bg-sky-400/20 transition-colors">What
+                    are his skills?</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 border-t border-slate-700/50">
+                <div class="flex gap-2 bg-slate-900/50 border border-slate-700 rounded-2xl p-1.5">
+                    <input type="text" id="chat-input" placeholder="Type a question..."
+                        class="flex-grow bg-transparent border-none focus:outline-none px-4 py-2 text-sm text-white">
+                    <button id="chat-send"
+                        class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center hover:bg-sky-600 transition-colors">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="back-to-top"
+        class="fixed bottom-24 right-6 p-3 rounded-xl bg-sky-500 text-white shadow-lg shadow-sky-500/20 translate-y-20 opacity-0 transition-all duration-300 z-40 hover:scale-110">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
