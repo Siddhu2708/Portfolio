@@ -1,5 +1,23 @@
 # Deploy Your Portfolio (Free)
 
+## Option A — Vercel (frontend only)
+
+Best for hosting the **React UI**. API/contact form need a separate backend (use Render below).
+
+1. Go to [vercel.com](https://vercel.com) → Import [Siddhu2708/Portfolio](https://github.com/Siddhu2708/Portfolio)
+2. Leave **Root Directory** as `.` (project root) — `vercel.json` handles the build
+3. Add environment variable (after you deploy the API on Render):
+
+   | Key | Value |
+   |-----|--------|
+   | `VITE_API_URL` | `https://your-api.onrender.com/api` |
+
+4. Deploy. The site uses fallback data if the API is not set yet.
+
+---
+
+## Option B — Render (full MERN — recommended)
+
 Deploy the full MERN app on **Render** + **MongoDB Atlas** — free tier, no credit card for Atlas.
 
 ---
