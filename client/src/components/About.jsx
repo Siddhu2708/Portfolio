@@ -8,7 +8,7 @@ export default function About({ profile }) {
           <div className="relative about-image-container" data-aos="fade-right">
             <div className="aspect-square rounded-3xl bg-gradient-to-br from-sky-400 to-blue-600 p-1">
               <div className="w-full h-full rounded-[1.4rem] bg-dark-card overflow-hidden relative group">
-                <img src={profile?.profileImage || '/assets/imgs/man.jpeg'} alt={profile?.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img src={profile?.profileImage || 'https://github.com/Siddhu2708/Portfolio/blob/7e770431e8bd36be7cd7e02c9fac8c37f3e21004/sidd.png'} alt={profile?.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               </div>
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-400/20 blur-3xl -z-10" />
